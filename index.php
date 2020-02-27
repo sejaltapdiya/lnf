@@ -38,25 +38,3 @@
      </div>
     </body>
 </html>
-
-
-<?php
-
-require "connection.php";
-
-if(isset($_POST["btn"]))
-{
-$button=$_POST["btn"];
-$id=$_POST["id"];
-$password=$_POST["pwd"];
-if($id=="admin28" && $password=="admin2804")
-{
-    
-    header("Location:details.php");
-}
-else
-{
-    echo "Invalid Info. Try Again.";
-}
-}
-?>
