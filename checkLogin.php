@@ -16,11 +16,37 @@ if(mysqli_num_rows($result)>0)
           
           if($row["passwd"]==md5($_POST["pwd"]))
           {
-              $_SESSION["uname"]=$_POST["id"];
-              $_SESSION["full_name"]=$row["full_name"];
-              header("Location: home.php");
+             if($row["level"]==1)
+             {
+                $_SESSION["uname"]=$_POST["id"];
+                $_SESSION["full_name"]=$row["full_name"];
+                header("Location: admin/");
+             }
+             if($row["level"]==2)
+             {
+                $_SESSION["uname"]=$_POST["id"];
+                $_SESSION["full_name"]=$row["full_name"];
+                header("Location: staff/");
+             }
+             if($row["level"]==3)
+             {
+                $_SESSION["uname"]=$_POST["id"];
+                $_SESSION["full_name"]=$row["full_name"];
+                header("Location: coordinators/");
+
+             }
 
           }
+          else 
+          {
+              $_SESSION["status"]="pi";
+              header("Location: ./");
+          }
+        }
+        else 
+        {
+            $_SESSION["status"]="wi";
+            header("Location: ./");
         }
     }
 } 

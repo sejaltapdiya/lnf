@@ -1,3 +1,18 @@
+<?php 
+ session_start();
+ if(isset($_SESSION["status"]))
+ {
+     if($_SESSION["status"]=="wi")
+     {
+        echo "<script> alert('User Not found')</script>";
+     }
+     if($_SESSION["status"]=="pi")
+     {
+        echo "<script> alert('ID password mismatch')</script>";
+     }
+     session_destroy();
+ }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
