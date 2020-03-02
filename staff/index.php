@@ -18,8 +18,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-<div class="container">
+<div class="container my-4">
 <div class="row">
 <div class="col">All Complaints</div>
 <div class="col">Datewise Complaints</div>
