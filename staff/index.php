@@ -55,6 +55,7 @@
 </script>
 </head>
 <body>
+<<<<<<< HEAD
 
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary"  style="margin-bottom:3em;">
@@ -739,5 +740,15 @@
         </tbody>
     </table>
     </div>
+=======
+<div class="container my-4">
+<div class="row">
+<div class="col">All Complaints</div>
+<div class="col">Datewise Complaints</div>
+<div class="col">Co-ordinators</div>
+</div>
+</div>
+</div>
+>>>>>>> 8262003b93aedd5b32f3573cc536dc9d0ba8338d
 </body>
 </html>
