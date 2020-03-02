@@ -1,8 +1,58 @@
 <?php 
- session_start();
- if(isset($_SESSION["status"]))
- {
-     if($_SESSION["status"]=="wi")
+//  session_start();
+//  if(isset($_SESSION["status"])) echo $_SESSION["status"]."<br>";else echo "not found <br>";
+//  if(isset($_SESSION["status"]))
+//  {
+//      if($_SESSION["status"] == "check"){
+//          if($_SESSION["level"] == "1"){
+//             header("Location: admin/");
+//          }
+//          else if($_SESSION["level"] == "2"){
+//             header("Location: staff/");
+//          }
+//          else if($_SESSION["level"] == "3"){
+//             header("Location: coordinators/");
+//          }
+         
+//      }
+//      if($_SESSION["status"]=="wi")
+//      {
+//         echo "<script> alert('User Not found')</script>";
+//      }
+//      if($_SESSION["status"]=="pi")
+//      {
+//         echo "<script> alert('ID password mismatch')</script>";
+//      }
+//      session_destroy();
+//  }
+// ?>
+
+
+
+<?php
+
+session_start();
+
+if(isset($_COOKIE["unameForlnf"])){
+   require "connection.php";
+   $sql = "SELECT level FROM users WHERE uname=\"".$_COOKIE["unameForlnf"]."\"";
+   $result = mysqli_query($conn,$sql);
+   $level = mysqli_fetch_assoc($result)["level"];
+   if($level == 1){
+      header("Location: ./admin/");
+   }
+   else if($level == 2){
+      header("Location: ./staff/");
+   }
+   else if($level == 3){
+      header("Location: ./coordinators/");
+   }
+}
+
+
+if(isset($_SESSION["status"])){
+   echo $_SESSION["status"]."<br>";
+   if($_SESSION["status"]=="wi")
      {
         echo "<script> alert('User Not found')</script>";
      }
@@ -11,8 +61,12 @@
         echo "<script> alert('ID password mismatch')</script>";
      }
      session_destroy();
- }
+}
+
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
