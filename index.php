@@ -33,11 +33,13 @@
 
 session_start();
 
-if(isset($_COOKIE["unameForlnf"])){
+if(isset($_COOKIE["unameForlnf"]) && $_COOKIE["unameForlnf"] != "null"){
    require "connection.php";
    $sql = "SELECT level FROM users WHERE uname=\"".$_COOKIE["unameForlnf"]."\"";
    $result = mysqli_query($conn,$sql);
    $level = mysqli_fetch_assoc($result)["level"];
+   //print_r($_COOKIE);
+   $_SESSION["user"] = $_COOKIE["unameForlnf"];
    if($level == 1){
       header("Location: ./admin/");
    }
@@ -62,6 +64,7 @@ if(isset($_SESSION["status"])){
      }
      session_destroy();
 }
+
 
 ?>
 

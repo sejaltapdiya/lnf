@@ -55,11 +55,10 @@
 </script>
 </head>
 <body>
-<<<<<<< HEAD
 
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary"  style="margin-bottom:3em;">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Lost & Found</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -67,12 +66,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="../logout.php">Logout</a>
+        </li>
+        <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown
             </a>
@@ -82,35 +90,58 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
             </div>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+        </li> -->
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <!-- <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        </form> -->
     </div>
 </nav>
 <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+
     <div class="container">
     <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
         <thead>
             <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-                <th>Extn.</th>
-                <th>E-mail</th>
+                <th>Sr No</th>
+                <th>Product</th>
+                <th>Description</th>
+                <th>Name</th>
+                <th>Contact No</th>
+                <th>Date</th>
+                <th>Place</th>
+                <th>Co-ordinator</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <?php
+            require "../connection.php";
+            $sno = 1;
+            $sql = "SELECT * FROM complaints;";
+            $result = mysqli_query($conn,$sql);
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_assoc($result)){
+                    echo "<tr>";
+                    echo "<td>".strval($sno++)."</td>";
+                    echo "<td>".$row["product"]."</td>";
+                    echo "<td>".$row["description"]."</td>";
+                    echo "<td>".$row["date"]."</td>";
+                    echo "<td>".$row["place"]."</td>";
+                    echo "<td>".$row["name"]."</td>";
+                    echo "<td>".$row["pno"]."</td>";
+                    echo "<td>".$row["coordinator"]."</td>";
+                }
+            }
+            else{
+                //
+            }
+
+            ?>
+            <!-- <tr>
                 <td>Tiger</td>
                 <td>Nixon</td>
                 <td>System Architect</td>
@@ -736,19 +767,9 @@
                 <td>$112,000</td>
                 <td>4226</td>
                 <td>d.snider@datatables.net</td>
-            </tr>
+            </tr> -->
         </tbody>
     </table>
     </div>
-=======
-<div class="container my-4">
-<div class="row">
-<div class="col">All Complaints</div>
-<div class="col">Datewise Complaints</div>
-<div class="col">Co-ordinators</div>
-</div>
-</div>
-</div>
->>>>>>> 8262003b93aedd5b32f3573cc536dc9d0ba8338d
 </body>
 </html>

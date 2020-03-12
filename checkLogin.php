@@ -13,6 +13,7 @@ if (isset($_POST["submitbtn"])) {
             if ($row["passwd"] == md5($_POST["pwd"])) {
                 $_SESSION["status"] = "check";
                 $_SESSION["uname"] = $_POST["id"];
+                $_SESSION["user"] = $_POST["id"];
                 header("Location: setcookie.php");
             } else {
                 $_SESSION["status"] = "pi";
